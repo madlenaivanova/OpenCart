@@ -53,113 +53,61 @@ namespace OpenCartTests
         {
             driver.Navigate().GoToUrl(@"https://www.opencart.com/index.php?route=account/login");
 
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
 
             var email = driver.FindElement(By.Id("input-email"));
+            email.Clear();
+            email.SendKeys("mad17@abv.bg");
+            Thread.Sleep(1000);
 
             var password = driver.FindElement(By.Id("input-password"));
-
-            var loginButton = driver.FindElement(By.CssSelector("button.btn"));
-
-            var continueButton = driver.FindElement(By.CssSelector("button.btn"));
-
-            email.Clear();
-
-            email.SendKeys("mad17@abv.bg");
-
-
-
             password.Clear();
-
+            Thread.Sleep(1000);
             password.SendKeys("englisc");
 
-
-
+            var loginButton = driver.FindElement(By.CssSelector("button.btn"));
             loginButton.Click();
 
-            Thread.Sleep(5000);
-
-
-
-            var loggedUserName = driver.FindElement(By.XPath("//a[contains(text(),'PIN')]"));
-
-
-
-            Thread.Sleep(6000);
-
-
-
-            Assert.AreEqual("PIN", loggedUserName.Text);
-
-
-
             var pin = driver.FindElement(By.Id("input-pin"));
-
-
-
             pin.Clear();
-
             pin.SendKeys("1717");
 
-
-
+            var continueButton = driver.FindElement(By.CssSelector(".btn.btn-primary.btn-lg"));
             continueButton.Click();
+            Thread.Sleep(1000);
 
+            var pageHeading = driver.FindElement(By.CssSelector("h1"));
 
-
+            Assert.AreEqual("Account", pageHeading.Text);
         }
 
-
-
         [TestCategory("HomePageTests")]
-
         [TestMethod]
-
         public void Test02NavigateToDemo()
-
         {
-
             driver.Navigate().GoToUrl(@"https://demo.opencart.com/admin/");
-
-
 
             Thread.Sleep(1000);
 
-
-
             var userName = driver.FindElement(By.Id("input-username"));
-
-
 
             var password = driver.FindElement(By.Id("input-password"));
 
-
-
             var loginButton = driver.FindElement(By.CssSelector("button.btn"));
-
-
 
             userName.Clear();
 
             userName.SendKeys("mad17@abv.bg");
 
-
-
             password.Clear();
 
             password.SendKeys("englisc");
-
-
 
             loginButton.Click();
 
             Thread.Sleep(6000);
 
-
-
-            var loggedUserName = driver.FindElement(By.XPath("//a[contains(text(),'PIN]"));
-
-
+            var loggedUserName = driver.FindElement(By.XPath("//a[contains(text(),'PIN']"));
 
             Assert.AreEqual("PIN", loggedUserName.Text);
 
@@ -176,11 +124,11 @@ namespace OpenCartTests
             driver.Navigate().GoToUrl(@"https://demo.opencart.com/index.php?route=common/home");
 
             Thread.Sleep(1000);
-            
+
             var product = driver.FindElement(By.XPath("//*[@id='content']/div[2]/div[2]/div/div[2]/h4/a"));
             product.Click();
-            
-            var writeReviewLink= driver.FindElement(By.XPath("//*[@id='content']/div[1]/div[2]/div[3]/p/a[2]"));
+
+            var writeReviewLink = driver.FindElement(By.XPath("//*[@id='content']/div[1]/div[2]/div[3]/p/a[2]"));
             writeReviewLink.Click();
 
             var yourName = driver.FindElement(By.Id("input-name"));
