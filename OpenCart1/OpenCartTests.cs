@@ -109,10 +109,7 @@ namespace OpenCartTests
             var loggedUser = driver.FindElement(By.XPath("//*[@id='header']/div/ul/li[1]/a"));
 
             Assert.AreEqual("demo demo", loggedUser.Text);
-            
-            //var logoutButton = driver.FindElement(By.CssSelector("button.btn"));
-
-            //logoutButton.Click();
+           
         }
 
         [TestCategory("DemoPageTests")]
