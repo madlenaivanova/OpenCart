@@ -39,7 +39,7 @@ namespace OpenCartTests
 
             var homePageHeading = driver.FindElement(By.CssSelector("h1"));
 
-            var expectedHeadingText = "Madlena";
+            var expectedHeadingText = "The best FREE and open-source eCommerce platform";
 
             var actualHeadingText = homePageHeading.Text;
 
