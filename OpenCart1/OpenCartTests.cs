@@ -39,7 +39,7 @@ namespace OpenCartTests
 
             var homePageHeading = driver.FindElement(By.CssSelector("h1"));
 
-            var expectedHeadingText = "The best FREE and open-source eCommerce platform";
+            var expectedHeadingText = "Madlena";
 
             var actualHeadingText = homePageHeading.Text;
 
@@ -87,7 +87,7 @@ namespace OpenCartTests
 
         [TestCategory("DemoPageTests")]
         [TestMethod]
-        public void Test02NavigateToDemo()
+        public void Test03LogInToDemo()
         {
             driver.Navigate().GoToUrl(@"https://demo.opencart.com/admin/");
 
@@ -104,7 +104,7 @@ namespace OpenCartTests
             var loginButton = driver.FindElement(By.XPath("//*[@id='content']/div/div/div/div/div[2]/form/div[3]/button"));
             loginButton.Click();
 
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             var loggedUser = driver.FindElement(By.XPath("//*[@id='header']/div/ul/li[1]/a"));
 
@@ -117,7 +117,7 @@ namespace OpenCartTests
 
         [TestCategory("DemoPageTests")]
         [TestMethod] 
-        public void WriteReview()
+        public void Test04WriteReview()
 
         {
             driver.Navigate().GoToUrl(@"https://demo.opencart.com/");
@@ -145,7 +145,7 @@ namespace OpenCartTests
             var continueButton = driver.FindElement(By.Id("button-review"));
             continueButton.Click();
 
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             var submittedReviewMessage = driver.FindElement(By.CssSelector(".alert-success"));
 
