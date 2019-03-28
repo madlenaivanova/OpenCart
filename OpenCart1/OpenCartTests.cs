@@ -51,9 +51,13 @@ namespace OpenCartTests
         public void Test02NavigateToLogIn()
 
         {
-            driver.Navigate().GoToUrl(@"https://www.opencart.com/index.php?route=account/login");
+            driver.Navigate().GoToUrl(@"https://www.opencart.com");
 
             Thread.Sleep(1000);
+
+            
+            var loginButton = driver.FindElement(By.XPath("//*[@id='navbar-collapse-header']/div/a[1]"));
+            loginButton.Click();
 
             var email = driver.FindElement(By.Id("input-email"));
             email.Clear();
@@ -65,8 +69,8 @@ namespace OpenCartTests
             Thread.Sleep(1000);
             password.SendKeys("englisc");
 
-            var loginButton = driver.FindElement(By.CssSelector("button.btn"));
-            loginButton.Click();
+            var loginAccountButton = driver.FindElement(By.CssSelector("button.btn"));
+            loginAccountButton.Click();
 
             var pin = driver.FindElement(By.Id("input-pin"));
             pin.Clear();
@@ -88,8 +92,7 @@ namespace OpenCartTests
             driver.Navigate().GoToUrl(@"https://demo.opencart.com/admin/");
 
             Thread.Sleep(1000);
-            //*[@id="content"]/div/div/div/div/div[2]/form/div[3]/button
-            //*[@id="content"]/div/div/div/div/div[2]/form/div[3]/button
+           
             var userName = driver.FindElement(By.Id("input-username"));
             userName.Clear();
             userName.SendKeys("mad17@abv.bg");
@@ -117,7 +120,7 @@ namespace OpenCartTests
         public void WriteReview()
 
         {
-            driver.Navigate().GoToUrl(@"https://demo.opencart.com/index.php?route=common/home");
+            driver.Navigate().GoToUrl(@"https://demo.opencart.com/");
 
             Thread.Sleep(1000);
 
