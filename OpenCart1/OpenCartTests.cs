@@ -85,7 +85,7 @@ namespace OpenCartTests
             Assert.AreEqual("Account", pageHeading.Text);
         }
 
-        [TestCategory("HomePageTests")]
+        [TestCategory("DemoPageTests")]
         [TestMethod]
         public void Test02NavigateToDemo()
         {
@@ -115,7 +115,7 @@ namespace OpenCartTests
             //logoutButton.Click();
         }
 
-        [TestCategory("HomePageTests")]
+        [TestCategory("DemoPageTests")]
         [TestMethod] 
         public void WriteReview()
 
